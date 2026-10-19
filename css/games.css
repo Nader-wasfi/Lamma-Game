@@ -1,0 +1,71 @@
+/* ===== games.css: شكل عناصر كل لعبة (الألوان بتيجي من themes.css) ===== */
+
+/* إكس أو */
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.cell{aspect-ratio:1;border-radius:var(--rk);border:0;background:var(--surf);font:900 3.2rem Cairo,sans-serif;box-shadow:inset 0 0 0 2px var(--line);cursor:pointer;color:var(--ink)}
+.cell.X{color:var(--a)}.cell.O{color:var(--b)}.cell.w{background:var(--c);color:#12263a}
+
+/* 4 في صف */
+.c4{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;background:var(--d);padding:8px;border-radius:var(--rc);margin:12px 0}
+.c4 button{aspect-ratio:1;border-radius:50%;border:0;background:var(--bg);cursor:pointer;padding:0}
+.c4 .r{background:var(--a)}.c4 .y{background:var(--c)}.c4 .w{box-shadow:0 0 0 4px #fff inset}
+
+/* بنجو */
+.pad{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.pad button{aspect-ratio:1;border-radius:var(--rk);border:2px solid var(--line);background:var(--bg);color:var(--ink);font:700 1.1rem Cairo,sans-serif;cursor:pointer}
+.pad button:disabled{opacity:.25}
+.turn,.win{text-align:center;margin:0 0 10px;font-size:1.05rem;color:var(--ink)}.win{font-size:1.5rem;font-weight:900;color:var(--b)}
+.bg{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;direction:ltr;margin:10px 0}
+.bc{aspect-ratio:1;border-radius:var(--rk);display:grid;place-items:center;background:var(--surf);border:2px solid var(--line);font:900 1.4rem Cairo,sans-serif}
+.bc.on{background:var(--b);color:#fff;border-color:var(--b)}.bc.ln{background:var(--c);border-color:var(--c);color:#12263a}
+
+/* أتوبيس كومبليت: خانات الإجابة بشكل ورقة مسطّرة */
+[data-game="bus"] .panel input[type=text]{border-radius:6px;border-style:dashed}
+
+/* الجاسوس: أزرار حادة بإطار بدل الظل */
+[data-game="spy"] .btn{box-shadow:none;border:2px solid var(--d);letter-spacing:.3px}
+[data-game="spy"] .btn.alt{border-color:var(--line)}
+.reveal.spy{background:var(--a)}
+
+/* حزّر الكلمة: لوح طباشير */
+.word{font-size:2.4rem;font-weight:900;letter-spacing:6px;text-align:center;margin:10px 0}
+[data-game="hang"] .panel{background:#14532d;border-color:#166534;color:#f0fdf4}
+[data-game="hang"] .panel p,[data-game="hang"] .panel b{color:#f0fdf4}
+.kb{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.kb button{padding:9px 0;border-radius:var(--rk);border:2px solid var(--line);background:var(--surf);color:var(--ink);font:700 1.05rem Cairo,sans-serif;cursor:pointer}
+.kb button:disabled{opacity:.3}
+
+/* ثقافة عامة */
+.opt{display:block;width:100%;text-align:right;margin-bottom:8px;padding:13px 14px;border-radius:var(--r);border:2px solid var(--line);background:var(--surf);color:var(--ink);font:700 1rem Cairo,sans-serif;cursor:pointer}
+.opt.ok{background:var(--b);color:#fff;border-color:var(--b)}.opt.no{background:var(--a);color:#fff;border-color:var(--a)}
+
+/* Heads Up */
+.hu{min-height:82vh;border-radius:var(--rc);background:var(--d);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:18px;text-align:center}
+.hu.g{animation:fl-g .5s}.hu.o{animation:fl-o .5s}
+@keyframes fl-g{from{background:var(--b)}to{background:var(--d)}}@keyframes fl-o{from{background:var(--a)}to{background:var(--d)}}
+.hut{font-size:2.4rem;font-weight:900}.huw{font-size:3.2rem;font-weight:900;line-height:1.3;padding:0 6px}
+.hub{display:flex;gap:10px;width:100%}.hub button{flex:1;border:0;border-radius:var(--r);padding:18px;font:900 1.2rem Cairo,sans-serif;cursor:pointer}
+.hub .okb{background:var(--b);color:#fff}.hub .skip{background:#fff;color:#12263a}
+@media (prefers-reduced-motion:reduce){.hu.g,.hu.o{animation:none}}
+
+/* ليدو */
+.ldb{width:100%;max-width:480px;display:block;margin:0 auto;border-radius:14px;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.pm{animation:pm .7s infinite alternate;cursor:pointer;transform-box:fill-box;transform-origin:center}
+@keyframes pm{to{transform:scale(1.3)}}
+.ldbar{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:10px;font-size:1.05rem}
+.dot{width:16px;height:16px;border-radius:50%;display:inline-block}
+.die{font-size:3.4rem;line-height:1;display:grid;place-items:center;min-width:76px;background:var(--surf);border:2px solid var(--line);border-radius:var(--rc)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* أعواد الكبريت */
+.mtsvg{width:100%;display:block;margin:0 auto}
+.hint{filter:drop-shadow(0 0 1.5px #dc2626);animation:pm2 .8s infinite alternate}
+@keyframes pm2{to{opacity:.55}}
+
+/* ألغاز الأرقام */
+.gm{display:grid;gap:6px;margin:10px auto}
+.gm button{aspect-ratio:1;border-radius:var(--rk);border:2px solid var(--line);background:var(--surf);color:var(--ink);font:900 1.8rem Cairo,sans-serif;cursor:pointer}
+.gm .fx{background:var(--bg);color:var(--d)}.gm .sl{border-color:var(--d);box-shadow:0 0 0 3px color-mix(in srgb,var(--d) 30%,transparent)}.gm .bd{background:color-mix(in srgb,var(--a) 22%,var(--surf));color:var(--a)}
+.pad2{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:10px 0}.pad2 .btn{min-width:48px;padding:10px 12px}
+.opt small{font-weight:400;color:var(--mut)}
+.opt:disabled{opacity:1}

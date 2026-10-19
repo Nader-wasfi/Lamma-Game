@@ -4,7 +4,7 @@ function qz(){stop();RE=qz;
 app.innerHTML=`<div class="top"><h2>ثقافة عامة</h2>${back}</div>
 <p>الأسئلة بالدور بين اللاعبين. اختار العدد واكتب الأسامي.</p>
 <div class="panel">${psel(1,8,'qz')}${pnames()}
-<label>عدد الأسئلة</label><select onchange="QN=+this.value">${[5,10,15,20].map(n=>`<option ${n==QN?'selected':''}>${n}</option>`).join('')}</select></div>
+<label>عدد الأسئلة</label><select onchange="QN=+this.value">${[5,10,15,20,30,50].filter(n=>n<=Q.length).map(n=>`<option ${n==QN?'selected':''}>${n}</option>`).join('')}</select></div>
 <button class="btn big" onclick="qgo()">ابدأ</button>`}
 function qgo(){QZ={q:shuf(Q).slice(0,QN),i:0,sc:P.map(()=>0)};qr()}
 function qr(){const z=QZ,n=z.q.length;
